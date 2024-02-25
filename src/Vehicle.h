@@ -1,6 +1,8 @@
 #ifndef VEHICLE_H
 #define VEHICLE_H
 
+#include <utility>
+
 #include "TrafficObject.h"
 
 // forward declarations to avoid include cycle
@@ -14,11 +16,11 @@ public:
     Vehicle();
 
     // getters / setters
-    void setCurrentStreet(std::shared_ptr<Street> street) { _currStreet = street; };
+    void setCurrentStreet(std::shared_ptr<Street> street) { _currStreet = std::move(street); };
     void setCurrentDestination(std::shared_ptr<Intersection> destination);
 
     // typical behaviour methods
-    void simulate();
+    void simulate() override;
 
     // miscellaneous
     std::shared_ptr<Vehicle> get_shared_this() { return shared_from_this(); }

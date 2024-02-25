@@ -1,5 +1,6 @@
 #include <iostream>
 #include <random>
+#include <utility>
 #include "Street.h"
 #include "Intersection.h"
 #include "Vehicle.h"
@@ -16,7 +17,7 @@ Vehicle::Vehicle()
 void Vehicle::setCurrentDestination(std::shared_ptr<Intersection> destination)
 {
     // update destination
-    _currDestination = destination;
+    _currDestination = std::move(destination);
 
     // reset simulation parameters
     _posStreet = 0.0;
@@ -25,7 +26,7 @@ void Vehicle::setCurrentDestination(std::shared_ptr<Intersection> destination)
 void Vehicle::simulate()
 {
     // launch drive function in a thread
-    threads.emplace_back(std::thread(&Vehicle::drive, this));
+    threads.emplace_back(&Vehicle::drive, this);
 }
 
 // virtual function which is executed in a thread
@@ -93,7 +94,7 @@ void Vehicle::drive()
                 // choose next street and destination
                 std::vector<std::shared_ptr<Street>> streetOptions = _currDestination->queryStreets(_currStreet);
                 std::shared_ptr<Street> nextStreet;
-                if (streetOptions.size() > 0)
+                if (!streetOptions.empty())
                 {
                     // pick one street at random and query intersection to enter this street
                     std::random_device rd;

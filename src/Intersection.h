@@ -3,8 +3,6 @@
 
 #include <vector>
 #include <future>
-#include <mutex>
-#include <memory>
 #include "TrafficObject.h"
 #include "TrafficLight.h"
 
@@ -43,7 +41,7 @@ public:
     void addVehicleToQueue(std::shared_ptr<Vehicle> vehicle);
     void addStreet(std::shared_ptr<Street> street);
     std::vector<std::shared_ptr<Street>> queryStreets(std::shared_ptr<Street> incoming); // return pointer to current list of all outgoing streets
-    void simulate();
+    void simulate() override;
     void vehicleHasLeft(const std::shared_ptr<Vehicle>& vehicle);
 
     bool trafficLightIsGreen();

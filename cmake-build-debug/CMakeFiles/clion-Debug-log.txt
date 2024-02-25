@@ -11,21 +11,7 @@
 -- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
-CMake Error at CMakeLists.txt:7 (find_package):
-  By not providing "FindOpenCV.cmake" in CMAKE_MODULE_PATH this project has
-  asked CMake to find a package configuration file provided by "OpenCV", but
-  CMake did not find one.
-
-  Could not find a package configuration file provided by "OpenCV" (requested
-  version 4.1) with any of the following names:
-
-    OpenCVConfig.cmake
-    opencv-config.cmake
-
-  Add the installation prefix of "OpenCV" to CMAKE_PREFIX_PATH or set
-  "OpenCV_DIR" to a directory containing one of the above files.  If "OpenCV"
-  provides a separate development package or SDK, be sure it has been
-  installed.
-
-
--- Configuring incomplete, errors occurred!
+-- Found OpenCV: /usr/local (found suitable version "4.1.2", minimum required is "4.1") 
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/chaklader/CLionProjects/Concurrent-Traffic-Simulation/cmake-build-debug

@@ -152,7 +152,7 @@ int main()
     });
 
     // draw all objects in vector
-    Graphics *graphics = new Graphics();
+    auto *graphics = new Graphics();
     graphics->setBgFilename(backgroundImg);
     graphics->setTrafficObjects(trafficObjects);
     graphics->simulate();

@@ -14,7 +14,7 @@ void TrafficObject::setPosition(double x, double y)
     _posY = y;
 }
 
-void TrafficObject::getPosition(double &x, double &y)
+void TrafficObject::getPosition(double &x, double &y) const
 {
     x = _posX;
     y = _posY;
