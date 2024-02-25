@@ -61,6 +61,10 @@
 #include <thread>
 #include "TrafficObject.h"
 
+
+// forward declarations to avoid include cycle
+class Vehicle;
+
 enum TrafficLightPhase { red, green };
 
 template <class T>

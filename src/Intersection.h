@@ -6,6 +6,8 @@
 #include <mutex>
 #include <memory>
 #include "TrafficObject.h"
+#include "TrafficLight.h"
+
 
 // forward declarations to avoid include cycle
 class Street;
@@ -42,11 +44,13 @@ public:
     void addStreet(std::shared_ptr<Street> street);
     std::vector<std::shared_ptr<Street>> queryStreets(std::shared_ptr<Street> incoming); // return pointer to current list of all outgoing streets
     void simulate();
-    void vehicleHasLeft(std::shared_ptr<Vehicle> vehicle);
+    void vehicleHasLeft(const std::shared_ptr<Vehicle>& vehicle);
+
     bool trafficLightIsGreen();
 
 private:
 
+    TrafficLight _trafficLight;
     // typical behaviour methods
     void processVehicleQueue();
 
